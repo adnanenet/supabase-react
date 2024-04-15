@@ -1,21 +1,23 @@
 //import liraries
 import React,{useState} from 'react';
-import {supabase} from './createClient';
+import { supabase } from './createClient';
 
 // create a component
 const App = () => {
-    const []
+    const [users, setUsers]=useState([])
+    console.log(users)
     async function fetchUsers(){
         const {data} = supabase
         .from('users')
         .select('*')
+        setUsers(data)
     }
 
 
     return (
-        <View style={styles.container}>
-            <Text>MyComponent</Text>
-        </View>
+        
+            <div>MyComponent</div>
+        
     );
 };
 
